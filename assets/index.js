@@ -1,12 +1,13 @@
 const citySearchBtn = document.getElementById('submit')
 const apiKey = '5fec77def754a40abd372c41b3f77b65' 
-
+const citySearch = document.getElementById('preSearch')
 
 function start() {
-    // capture thevalue of the input box
+    // capture the value of the input box
     const userInput = document.getElementById('citySearch').value;
 
     runApi(userInput);
+    // localStorage.
 }
 
 function runApi(city) {
@@ -17,6 +18,7 @@ function runApi(city) {
     console.log(data);
     const cityNameEl =  document.getElementById('cityName')
     cityNameEl.textContent = data.name
+    citySearch.append(cityNameEl)
   })
 }
 
