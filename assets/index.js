@@ -1,46 +1,48 @@
-const citySearchBtn = document.getElementById('submit')
-const apiKey = '5fec77def754a40abd372c41b3f77b65' 
-const citySearch = document.getElementById('preSearch')
+const citySearchBtn = document.getElementById('submit');
+const apiKey = '5fec77def754a40abd372c41b3f77b65';
+const citySearch = document.getElementById('preSearch');
 
 function start() {
-    // capture the value of the input box
-    const userInput = document.getElementById('citySearch').value;
+  // capture the value of the input box
+  const userInput = document.getElementById('citySearch').value;
 
-    runApi(userInput);
-    // localStorage.
+  runApi(userInput);
+  // localStorage.
 }
 
 function runApi(city) {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`)
-   .then((res) => {
-    return res.json()
-  }).then((data) => {
-    console.log(data);
-  
-    let iconEl = document.getElementById('icon');
-      iconEl.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
 
-    let dateObj = new Date(data.dt * 1000);
-    let dateEl = document.getElementById('date');
+      let iconEl = document.getElementById('icon');
+      iconEl.setAttribute(
+        'src',
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      );
+
+      let dateObj = new Date(data.dt * 1000);
+      let dateEl = document.getElementById('date');
       dateEl.textContent = dateObj;
 
-    const cityNameEl =  document.getElementById('cityName')
-      cityNameEl.textContent = data.name
-  
-  });
-  
+      const cityNameEl = document.getElementById('cityName');
+      cityNameEl.textContent = data.name;
+    });
 
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`)
     .then((res) => {
-      return res.json()
-    }).then((data) => {
+      return res.json();
+    })
+    .then((data) => {
       console.log(data);
-  
-      
-    
-   });
-  };
 
+      for (let i = 3; i < data.list.length; i += 8) {
+        console.log(data.list[i]);
+      }
+    });
+}
 
-citySearchBtn.addEventListener("click", start)
-
+citySearchBtn.addEventListener('click', start);
