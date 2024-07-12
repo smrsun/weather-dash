@@ -18,3 +18,7 @@ This page should display a list of the temp, wind speed, humidity, and an icon t
     * Commented on changed code
 
 [Link to Weather Dashboard](http://127.0.0.1:5500/weather-dash/index.html)
+
+[link to deployed page](https://smrsun.github.io/weather-dash/)
+
+[link to github repo](https://github.com/smrsun/weather-dash)
