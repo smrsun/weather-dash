@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./assets/styles.css">
     <title>Weather Dash</title>
 </head>
 <body>
-    <h2>Search for a city:</h2>
-    <div>
-        <input type="text" id="citySearch">
-        <button type="button" id="submit">Search</button>
-        
-    </div>
-    
-    <div>
-        <div>
-            <!-- <h2 id="todaysWeather">Today's Weather</h2> -->
-            <h2 id="cityName"></h2>
-        <img src="" alt="" id="icon">
-            <h2 id="date"></h2>
-        </div>
-        <section id="searchList"></section>
-    </div>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <aside class="search-section">
+            <div class="search-container">
+                <h2>Search for a city:</h2>
+                <input type="text" id="citySearch" placeholder="Enter city name">
+                <button type="button" id="submit">Search</button>
+            </div>
+            <div id="search-history">
+                <h3>Search History</h3>
+                <ul id="searchList"></ul>
+            </div>
+        </aside>
+        <section class="weather-section">
+            <div id="current-weather">
+                <h2 id="cityName"></h2>
+                <img src="" alt="Weather icon" id="weatherIcon">
+                <p id="date"></p>
+                <p id="temperature"></p>
+                <p id="humidity"></p>
+                <p id="wind-speed"></p>
+            </div>
+            <div id="forecast">
+                <h3>5-Day Forecast</h3>
+                <div id="forecast-cards"></div>
+            </div>
+        </section>
+    </main>
     
     <script src="./assets/index.js"></script>
 </body>
